@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/lib/supabase';
 
 // Custom animations for the background blobs
 const blobAnimation = {
@@ -65,6 +65,7 @@ const GameHero = () => {
     setIsLoading(true);
     
     try {
+      const supabase = createClient();
       const { error } = await supabase
         .from('waitlist')
         .insert([{ email: email}]);
