@@ -342,17 +342,33 @@ const GameHero = () => {
 
             {/* FAQ Section */}
             <motion.div
-              className="max-w-4xl mx-auto mt-20 px-4"
+              className="max-w-3xl mx-auto mt-32 px-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-white mb-4 font-oxanium">Frequently Asked Questions</h2>
-                <p className="text-blue-100 text-lg">Everything you need to know about our platform</p>
+              {/* Keep the header centered */}
+              <div className="text-center mb-16 pt-8">
+                <motion.h2 
+                  className="text-4xl font-bold text-white mb-4 font-oxanium"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  Frequently Asked Questions
+                </motion.h2>
+                <motion.p 
+                  className="text-blue-100 text-lg"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  Everything you need to know about our platform
+                </motion.p>
               </div>
 
-              <div className="space-y-6">
+              {/* Left-aligned FAQ content */}
+              <div className="space-y-8 text-left">
                 {[
                   {
                     question: "When will the platform launch?",
@@ -373,41 +389,45 @@ const GameHero = () => {
                 ].map((faq, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-yellow-300/50 transition-all"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:border-yellow-300/50 transition-all"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 + index * 0.1 }}
                     whileHover={{ scale: 1.02 }}
                   >
-                    <h3 className="text-xl font-bold text-white mb-3 font-oxanium flex items-center gap-3">
-                      <span className="text-yellow-300">Q.</span>
-                      {faq.question}
-                    </h3>
-                    <p className="text-blue-100 text-lg pl-6">
-                      {faq.answer}
-                    </p>
+                    <div className="flex items-start gap-4">
+                      <span className="text-yellow-300 text-lg font-bold font-oxanium mt-1">Q.</span>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold text-white mb-4 font-oxanium">
+                          {faq.question}
+                        </h3>
+                        <p className="text-blue-100 text-lg leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Secondary CTA */}
+              {/* Keep the CTA centered */}
               <motion.div
-                className="text-center mt-12"
+                className="text-center mt-16"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
               >
-                <p className="text-blue-100 text-lg mb-6">
+                <p className="text-blue-100 text-xl mb-8">
                   Ready to start your learning journey?
                 </p>
                 <motion.button
                   onClick={() => document.querySelector('input[type="email"]')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-3 rounded-xl font-medium transition-all font-oxanium inline-flex items-center gap-2"
+                  className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl font-medium transition-all font-oxanium inline-flex items-center gap-3 group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Join the Waitlist
-                  <span className="text-xl">↑</span>
+                  <span>Join the Waitlist</span>
+                  <span className="text-xl transform group-hover:-translate-y-1 transition-transform">↑</span>
                 </motion.button>
               </motion.div>
             </motion.div>
