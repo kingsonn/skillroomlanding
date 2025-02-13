@@ -454,7 +454,7 @@ const GameHero = () => {
                 {[
                   {
                     question: "When will the platform launch?",
-                    answer: "We're planning to launch in Q2 2024. Early access members will get first access to the platform and exclusive features."
+                    answer: "We're planning to launch on April 1st 2025. Early access members will get first access to the platform and exclusive features."
                   },
                   {
                     question: "What career paths are available?",
