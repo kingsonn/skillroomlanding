@@ -1,26 +1,5 @@
 import { FC } from 'react';
 
-interface FeatureCardProps {
-  title: string;
-  description: string;
-  icon: string;
-}
-
-const FeatureCard: FC<FeatureCardProps> = ({ title, description, icon }) => (
-  <div className="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 hover:border-yellow-400/30 transition-all duration-300 hover:-translate-y-2">
-    <div className="p-8">
-      <div className="mb-6 flex items-center space-x-4">
-        <div className="h-16 w-16 bg-gradient-to-br from-yellow-400 to-orange-400 rounded-xl flex items-center justify-center text-3xl">
-          {icon}
-        </div>
-        <h3 className="text-2xl font-bold text-white">{title}</h3>
-      </div>
-      <p className="text-white/80">{description}</p>
-    </div>
-    <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-  </div>
-);
-
 const Features = () => {
   const features = [
     {
