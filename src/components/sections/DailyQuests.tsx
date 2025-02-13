@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React from 'react';
 
 interface Quest {
   title: string;
@@ -7,7 +7,7 @@ interface Quest {
   reward: string;
 }
 
-const QuestItem: FC<Quest> = ({ title, progress, goal, reward }) => (
+const QuestItem: React.FC<Quest> = ({ title, progress, goal, reward }) => (
   <div className="p-4 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:border-yellow-400/30 transition-colors">
     <div className="flex items-center justify-between mb-2">
       <h3 className="text-white font-medium">{title}</h3>

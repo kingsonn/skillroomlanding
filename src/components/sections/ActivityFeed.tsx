@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React from 'react';
 
 interface Activity {
   user: string;
@@ -7,21 +7,21 @@ interface Activity {
   avatar: string;
 }
 
-const ActivityItem: FC<Activity> = ({ user, action, timestamp, avatar }) => (
-  <div className="p-4 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:border-yellow-400/30 transition-colors">
-    <div className="flex items-center gap-4">
-      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center">
-        {avatar}
-      </div>
-      <div>
-        <p className="text-white">
-          <span className="font-semibold">{user}</span> {action}
-        </p>
-        <p className="text-sm text-white/60">{timestamp}</p>
-      </div>
-    </div>
-  </div>
-);
+// const ActivityItem = ({ user, action, timestamp, avatar }) => (
+//   <div className="p-4 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:border-yellow-400/30 transition-colors">
+//     <div className="flex items-center gap-4">
+//       <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center">
+//         {avatar}
+//       </div>
+//       <div>
+//         <p className="text-white">
+//           <span className="font-semibold">{user}</span> {action}
+//         </p>
+//         <p className="text-sm text-white/60">{timestamp}</p>
+//       </div>
+//     </div>
+//   </div>
+// );
 
 const ActivityFeed = () => {
   const activities = [
@@ -35,9 +35,9 @@ const ActivityFeed = () => {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-white mb-8">Community Activity</h2>
         <div className="grid grid-cols-1 gap-4 max-w-2xl mx-auto">
-          {activities.map((activity, index) => (
+          {/* {activities.map((activity, index) => (
             <ActivityItem key={index} {...activity} />
-          ))}
+          ))} */}
         </div>
       </div>
     </section>

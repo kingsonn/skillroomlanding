@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React from 'react';
 
 interface Leader {
   rank: number;
@@ -7,18 +7,18 @@ interface Leader {
   avatar: string;
 }
 
-const LeaderboardItem: FC<Leader> = ({ rank, name, xp, avatar }) => (
-  <div className="flex items-center justify-between p-4 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:border-yellow-400/30 transition-colors">
-    <div className="flex items-center gap-4">
-      <span className="text-xl font-bold text-yellow-400 w-8">#{rank}</span>
-      <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center">
-        {avatar}
-      </div>
-      <span className="text-white font-medium">{name}</span>
-    </div>
-    <span className="text-yellow-400 font-semibold">{xp.toLocaleString()} XP</span>
-  </div>
-);
+// const LeaderboardItem = ({ rank, name, xp, avatar }) => (
+//   <div className="flex items-center justify-between p-4 bg-white/5 backdrop-blur-lg rounded-xl border border-white/10 hover:border-yellow-400/30 transition-colors">
+//     <div className="flex items-center gap-4">
+//       <span className="text-xl font-bold text-yellow-400 w-8">#{rank}</span>
+//       <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 flex items-center justify-center">
+//         {avatar}
+//       </div>
+//       <span className="text-white font-medium">{name}</span>
+//     </div>
+//     <span className="text-yellow-400 font-semibold">{xp.toLocaleString()} XP</span>
+//   </div>
+// );
 
 const Leaderboard = () => {
   const leaders = [
@@ -38,9 +38,9 @@ const Leaderboard = () => {
           </p>
         </div>
         <div className="grid gap-4 max-w-2xl mx-auto">
-          {leaders.map((leader) => (
+          {/* {leaders.map((leader) => (
             <LeaderboardItem key={leader.rank} {...leader} />
-          ))}
+          ))} */}
         </div>
       </div>
     </section>

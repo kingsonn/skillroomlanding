@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface AchievementPopupProps {
   title: string;
@@ -7,7 +7,7 @@ interface AchievementPopupProps {
   onClose: () => void;
 }
 
-const AchievementPopup: FC<AchievementPopupProps> = ({ title, description, icon, onClose }) => {
+const AchievementPopup = ({ title, description, icon, onClose }: AchievementPopupProps) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {

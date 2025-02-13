@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React from 'react';
 
 interface AvatarProps {
   level: number;
@@ -6,7 +6,7 @@ interface AvatarProps {
   avatar: string;
 }
 
-const Avatar: FC<AvatarProps> = ({ level, progress, avatar }) => (
+const Avatar = ({ level, progress, avatar }: AvatarProps) => (
   <div className="relative group">
     <div className="relative w-32 h-32 rounded-full bg-gradient-to-br from-blue-400 to-purple-400 p-1">
       <div className="bg-gray-900 rounded-full p-2">

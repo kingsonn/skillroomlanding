@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React from 'react';
 
 interface BadgeProps {
   icon: string;
@@ -7,7 +7,7 @@ interface BadgeProps {
   unlocked: boolean;
 }
 
-const Badge: FC<BadgeProps> = ({ icon, title, description, unlocked }) => (
+const Badge = ({ icon, title, description, unlocked }: BadgeProps) => (
   <div className={`p-6 rounded-2xl transition-all duration-300 ${unlocked ? 
     'bg-gradient-to-br from-yellow-400 to-orange-400 text-black' : 
     'bg-white/5 border border-white/10 grayscale'}`}>

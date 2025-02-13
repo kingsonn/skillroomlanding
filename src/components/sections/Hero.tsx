@@ -264,7 +264,7 @@ const GameHero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-green-300 mb-8"
               >
-                🎉 Thanks for joining! We'll notify you when we launch.
+                🎉 Thanks for joining! We&apos;ll notify you when we launch.
               </motion.div>
             )}
 
@@ -372,11 +372,11 @@ const GameHero = () => {
                 {[
                   {
                     question: "When will the platform launch?",
-                    answer: "We're planning to launch in Q2 2024. Early access members will get first access to the platform and exclusive features."
+                    answer: "We&apos;re planning to launch in Q2 2024. Early access members will get first access to the platform and exclusive features."
                   },
                   {
                     question: "What career paths are available?",
-                    answer: "We'll offer paths in Software Development, Data Science, AI/ML, Product Management, and Digital Marketing. More paths will be added based on community demand."
+                    answer: "We&apos;ll offer paths in Software Development, Data Science, AI/ML, Product Management, and Digital Marketing. More paths will be added based on community demand."
                   },
                   {
                     question: "How is this different from other platforms?",
