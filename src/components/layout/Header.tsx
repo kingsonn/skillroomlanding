@@ -14,13 +14,6 @@ const Header = () => {
     });
   }
 
-  const navItems = [
-    { name: 'Skills Tree', href: '#skills' },
-    { name: 'Quests', href: '#quests' },
-    { name: 'Leaderboard', href: '#leaderboard' },
-    { name: 'Guild', href: '#guild' },
-  ];
-
   return (
     <motion.header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -44,18 +37,6 @@ const Header = () => {
             </div>
           </motion.div>
 
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-white hover:text-yellow-300 transition-colors duration-300"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
           {/* Action Buttons */}
           <div className="flex items-center gap-4">
             {/* XP Points */}
@@ -69,22 +50,13 @@ const Header = () => {
               <span className="text-white font-medium font-oxanium tracking-wider text-sm">2,450 XP</span>
             </motion.div>
 
-            {/* Login Button */}
-            <motion.button
-              className="text-blue-100 hover:text-white px-4 py-2 rounded-lg transition-colors font-oxanium tracking-wide text-sm"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              LOGIN
-            </motion.button>
-
             {/* Get Started Button */}
             <motion.button
               className="bg-yellow-300 hover:bg-yellow-200 text-blue-900 px-4 py-2 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl font-oxanium tracking-wide text-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              START QUEST
+              JOIN WAITLIST
             </motion.button>
           </div>
         </div>

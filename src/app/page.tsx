@@ -9,7 +9,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <Features />
+        {/* <Features /> */}
         {/* Add more marketing sections here */}
       </main>
     </div>
