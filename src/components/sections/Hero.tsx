@@ -66,7 +66,7 @@ const GameHero = () => {
       </div>
 
       {/* Floating Game Elements */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden lg:block">
         <motion.div
           className="absolute top-20 left-[10%]"
           variants={floatingAnimation}
@@ -98,32 +98,33 @@ const GameHero = () => {
         </motion.div>
       </div>
 
-      <div className="relative container mx-auto px-4 lg:px-8 py-12 lg:py-20">
+      <div className="relative container mx-auto px-4 lg:px-8 py-8 lg:py-20">
         {/* Main Hero Content */}
         <div className="max-w-[85rem] mx-auto">
-          <div className="text-center space-y-8 mb-16 lg:mb-24">
+          <div className="text-center space-y-6 lg:space-y-8 mb-0 md:mt-0 mt-8 lg:mb-24">
             <motion.div
-              className="inline-block mb-4"
+              className="inline-block mb-2 lg:mb-4"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", duration: 0.5 }}
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 border border-white/20">
-                <span className="text-yellow-300 font-semibold">🎮 Coming Soon</span>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl px-3 py-1.5 lg:px-4 lg:py-2 border border-white/20">
+                <span className="text-yellow-300 font-semibold text-sm lg:text-base">🎮 Coming Soon</span>
               </div>
             </motion.div>
 
             <motion.h1 
-              className="text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] tracking-tight"
+              className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1] tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
               Level Up Your Career
-              <div className="flex items-center justify-center gap-4 my-4">
-                with
+              <div className="flex flex-col lg:flex-row items-center justify-center gap-2 lg:gap-4 my-2 lg:my-4">
+                <span className="lg:hidden">with Supercharged Learning</span>
+                <span className="hidden lg:inline">with</span>
                 <motion.div
-                  className="relative inline-flex items-center justify-center"
+                  className="relative inline-flex items-center justify-center hidden lg:flex"
                   initial="initial"
                   animate="animate"
                   variants={{
@@ -185,12 +186,12 @@ const GameHero = () => {
                     </motion.span>
                   </div>
                 </motion.div>
-                Supercharged Learning
+                <span className="hidden lg:inline">Supercharged Learning</span>
               </div>
             </motion.h1>
 
             <motion.p
-              className="text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-exo2 mb-8"
+              className="text-lg md:text-xl lg:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed font-exo2 mb-6 lg:mb-8 px-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -198,64 +199,32 @@ const GameHero = () => {
               Be the first to experience our revolutionary learning platform. Join the waitlist for exclusive early access.
             </motion.p>
 
-            {/* Pricing Highlight */}
-            <motion.div
-              className="flex flex-col items-center justify-center mb-12"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
-            >
-              <div className="bg-white/10 backdrop-blur-sm rounded-full px-8 py-3 border border-white/20">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">💎</span>
-                  <p className="text-white font-medium text-xl">
-                    <span className="text-yellow-300 font-bold">₹200-800</span> per career path
-                  </p>
-                </div>
-              </div>
-              <motion.p 
-                className="text-blue-100 mt-3 text-lg"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
-              >
-                Early access members get special pricing
-              </motion.p>
-            </motion.div>
-
-            <motion.form 
+            {/* Email Form */}
+            <motion.form
               onSubmit={handleSubmit}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto mb-16"
+              className="max-w-xl mx-auto px-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35 }}
+              transition={{ delay: 0.3 }}
             >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                className="w-full sm:w-96 px-6 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-yellow-300/50 font-oxanium"
-                required
-              />
-              <motion.button
-                type="submit"
-                className="group relative w-full sm:w-auto bg-yellow-300 hover:bg-yellow-200 text-blue-900 px-8 py-4 rounded-xl text-xl font-bold transition-all shadow-lg hover:shadow-xl overflow-hidden font-oxanium tracking-wide"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <span className="relative z-10">GET EARLY ACCESS</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-yellow-200 to-yellow-300 opacity-0 group-hover:opacity-100 transition-opacity"
-                  initial={false}
-                  animate={{ scale: [0.8, 1.2, 0.8] }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
+              <div className="flex flex-col sm:flex-row gap-3 w-full">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-white/50 focus:outline-none focus:border-yellow-300/50"
+                  required
                 />
-              </motion.button>
+                <motion.button
+                  type="submit"
+                  className="px-6 py-3 bg-gradient-to-r from-yellow-300 to-yellow-400 rounded-xl text-blue-900 font-semibold hover:from-yellow-400 hover:to-yellow-500 transition-all shadow-lg shadow-yellow-400/20"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  Join Waitlist
+                </motion.button>
+              </div>
             </motion.form>
 
             {submitted && (
@@ -342,15 +311,15 @@ const GameHero = () => {
 
             {/* FAQ Section */}
             <motion.div
-              className="max-w-3xl mx-auto mt-32 px-4"
+              className="max-w-3xl mx-auto mt-16 lg:mt-32 px-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
               {/* Keep the header centered */}
-              <div className="text-center mb-16 pt-8">
+              <div className="text-center mb-12 lg:mb-16">
                 <motion.h2 
-                  className="text-4xl font-bold text-white mb-4 font-oxanium"
+                  className="text-3xl lg:text-4xl font-bold text-white mb-3 lg:mb-4 font-oxanium"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 }}
@@ -358,7 +327,7 @@ const GameHero = () => {
                   Frequently Asked Questions
                 </motion.h2>
                 <motion.p 
-                  className="text-blue-100 text-lg"
+                  className="text-base lg:text-lg text-blue-100"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
@@ -368,7 +337,7 @@ const GameHero = () => {
               </div>
 
               {/* Left-aligned FAQ content */}
-              <div className="space-y-8 text-left">
+              <div className="space-y-6 lg:space-y-8 text-left">
                 {[
                   {
                     question: "When will the platform launch?",
@@ -389,19 +358,19 @@ const GameHero = () => {
                 ].map((faq, index) => (
                   <motion.div
                     key={index}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20 hover:border-yellow-300/50 transition-all"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 lg:p-8 border border-white/20 hover:border-yellow-300/50 transition-all"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 + index * 0.1 }}
                     whileHover={{ scale: 1.02 }}
                   >
-                    <div className="flex items-start gap-4">
-                      <span className="text-yellow-300 text-lg font-bold font-oxanium mt-1">Q.</span>
+                    <div className="flex items-start gap-3 lg:gap-4">
+                      <span className="text-yellow-300 text-base lg:text-lg font-bold font-oxanium mt-1">Q.</span>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-white mb-4 font-oxanium">
+                        <h3 className="text-lg lg:text-xl font-bold text-white mb-3 lg:mb-4 font-oxanium">
                           {faq.question}
                         </h3>
-                        <p className="text-blue-100 text-lg leading-relaxed">
+                        <p className="text-base lg:text-lg text-blue-100 leading-relaxed">
                           {faq.answer}
                         </p>
                       </div>
@@ -410,24 +379,24 @@ const GameHero = () => {
                 ))}
               </div>
 
-              {/* Keep the CTA centered */}
+              {/* CTA */}
               <motion.div
-                className="text-center mt-16"
+                className="text-center mt-12 lg:mt-16"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1 }}
               >
-                <p className="text-blue-100 text-xl mb-8">
+                <p className="text-lg lg:text-xl text-blue-100 mb-6 lg:mb-8">
                   Ready to start your learning journey?
                 </p>
                 <motion.button
                   onClick={() => document.querySelector('input[type="email"]')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl font-medium transition-all font-oxanium inline-flex items-center gap-3 group"
+                  className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 lg:px-8 py-3 lg:py-4 rounded-xl font-medium transition-all font-oxanium inline-flex items-center gap-2 lg:gap-3 group"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <span>Join the Waitlist</span>
-                  <span className="text-xl transform group-hover:-translate-y-1 transition-transform">↑</span>
+                  <span className="text-lg lg:text-xl transform group-hover:-translate-y-1 transition-transform">↑</span>
                 </motion.button>
               </motion.div>
             </motion.div>

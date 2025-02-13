@@ -1,26 +1,21 @@
-import React from 'react';
+import { FC } from 'react';
+import { motion } from 'framer-motion';
 
-interface BadgeProps {
-  icon: string;
-  title: string;
-  description: string;
-  unlocked: boolean;
-}
-
-const Badge = ({ icon, title, description, unlocked }: BadgeProps) => (
-  <div className={`p-6 rounded-2xl transition-all duration-300 ${unlocked ? 
-    'bg-gradient-to-br from-yellow-400 to-orange-400 text-black' : 
-    'bg-white/5 border border-white/10 grayscale'}`}>
-    <div className="flex items-center gap-4">
-      <div className={`text-4xl ${unlocked ? 'animate-badgeSpin' : 'opacity-50'}`}>
-        {icon}
+const Badges: FC = () => {
+  return (
+    <motion.div
+      className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.5 }}
+    >
+      <h2 className="text-2xl font-bold text-white mb-4 font-oxanium">Badges</h2>
+      <div className="space-y-4">
+        {/* Badges content will go here */}
+        <p className="text-blue-100">Coming soon...</p>
       </div>
-      <div>
-        <h3 className="text-xl font-bold">{title}</h3>
-        <p className="text-sm opacity-80">{description}</p>
-      </div>
-    </div>
-  </div>
-);
+    </motion.div>
+  );
+};
 
-export default Badge;
+export default Badges;

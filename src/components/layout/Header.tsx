@@ -2,42 +2,47 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  if (typeof window !== 'undefined') {
-    window.addEventListener('scroll', () => {
+  useEffect(() => {
+    const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
-    });
-  }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <motion.header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-blue-600/80 backdrop-blur-lg' : 'bg-transparent'
+        isScrolled ? 'bg-blue-600/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <nav className="container mx-auto px-4 py-3">
+      <nav className="container mx-auto px-4 py-2 lg:py-3">
         <div className="flex items-center justify-between">
           <motion.div 
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-1.5 lg:gap-2 group"
             whileHover={{ scale: 1.02 }}
           >
-            <motion.div className="relative w-12 h-12 transition-all duration-300">
+            <motion.div className="relative w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 transition-all duration-300">
               <Image src="/logo.svg" alt="UpLeveling Logo" fill className="object-contain" priority />
             </motion.div>
             <div className="flex flex-col">
-              <span className="text-white font-bold text-2xl font-oxanium tracking-wider bg-gradient-to-r from-[#edc44d] via-yellow-300 to-[#edc44d] bg-clip-text text-transparent">UpLeveling</span>
+              <span className="text-white font-bold text-lg sm:text-xl lg:text-2xl font-oxanium tracking-wider bg-gradient-to-r from-[#edc44d] via-yellow-300 to-[#edc44d] bg-clip-text text-transparent">
+                UpLeveling
+              </span>
             </div>
           </motion.div>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {/* XP Points */}
             <motion.div 
               className="hidden sm:flex items-center gap-2 bg-blue-500/20 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/10"
@@ -51,7 +56,7 @@ const Header = () => {
 
             {/* Get Started Button */}
             <motion.button
-              className="bg-yellow-300 hover:bg-yellow-200 text-blue-900 px-4 py-2 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl font-oxanium tracking-wide text-sm"
+              className="bg-gradient-to-r from-yellow-300 to-yellow-400 hover:from-yellow-400 hover:to-yellow-500 text-blue-900 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl font-oxanium tracking-wide text-xs sm:text-sm whitespace-nowrap"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
