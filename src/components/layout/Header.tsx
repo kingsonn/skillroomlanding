@@ -16,6 +16,23 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    // First scroll to top
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    // Find the email input and trigger the highlight
+    const emailInput = document.querySelector('input[type="email"]') as HTMLInputElement;
+    if (emailInput) {
+      // Focus the input after scrolling
+      setTimeout(() => {
+        emailInput.focus();
+      }, 800); // Wait for scroll to complete
+    }
+  };
+
   return (
     <motion.header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -25,7 +42,7 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <nav className="container mx-auto px-4 py-2 lg:py-3">
+      <nav className="container mx-auto px-4 py-3 lg:py-4 mt-2 sm:mt-0">
         <div className="flex items-center justify-between">
           <motion.div 
             className="flex items-center gap-1.5 lg:gap-2 group"
@@ -56,6 +73,7 @@ const Header = () => {
 
             {/* Get Started Button */}
             <motion.button
+              onClick={scrollToTop}
               className="bg-gradient-to-r from-yellow-300 to-yellow-400 hover:from-yellow-400 hover:to-yellow-500 text-blue-900 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl font-oxanium tracking-wide text-xs sm:text-sm whitespace-nowrap"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
