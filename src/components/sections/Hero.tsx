@@ -1,8 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { createClient } from '@/lib/supabase';
+import dynamic from 'next/dynamic';
+
+const ReactConfetti = dynamic(() => import('react-confetti'), {
+  ssr: false
+});
 
 // Custom animations for the background blobs
 const blobAnimation = {
@@ -34,6 +39,26 @@ const GameHero = () => {
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [showHelper, setShowHelper] = useState(false);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -63,20 +88,29 @@ const GameHero = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     try {
       const supabase = createClient();
       const { error } = await supabase
         .from('waitlist')
-        .insert([{ email: email}]);
-  
+        .insert([{ email }]);
+
       if (error) throw error;
-  
+
+      // Show success effects
+      setShowConfetti(true);
+      setShowSuccessModal(true);
+      
+      // Hide effects after delay
+      setTimeout(() => {
+        setShowConfetti(false);
+        setShowSuccessModal(false);
+      }, 6000);
+      
       setSubmitted(true);
       setEmail('');
     } catch (error) {
-      console.error('Error saving email:', error);
-      // Handle error appropriately
+      console.error('Error:', error);
     } finally {
       setIsLoading(false);
     }
@@ -84,6 +118,74 @@ const GameHero = () => {
 
   return (
     <section className="w-full min-h-screen bg-blue-600 relative overflow-hidden">
+      {/* Confetti Effect */}
+      {showConfetti && (
+        <ReactConfetti
+          width={windowSize.width}
+          height={windowSize.height}
+          recycle={true}
+          numberOfPieces={500}
+          gravity={0.15}
+          wind={0.01}
+          colors={['#EAB308', '#FDE047', '#FACC15', '#FFE580', '#60A5FA', '#3B82F6']}
+          drawShape={ctx => {
+            ctx.beginPath();
+            for(let i = 0; i < 6; i++) {
+              ctx.lineTo(10 * Math.cos(2 * Math.PI * i / 6), 10 * Math.sin(2 * Math.PI * i / 6));
+            }
+            ctx.closePath();
+            ctx.fill();
+          }}
+        />
+      )}
+
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <motion.div 
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.5, opacity: 0 }}
+          className="fixed inset-0 flex items-center justify-center z-50 px-4"
+        >
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+          <motion.div 
+            className="bg-gradient-to-br from-blue-900 to-blue-950 rounded-2xl p-8 shadow-2xl border border-yellow-300/20 relative z-10 max-w-md w-full"
+            initial={{ y: 50 }}
+            animate={{ y: 0 }}
+            transition={{ type: "spring", damping: 12 }}
+          >
+            <div className="text-center">
+              <motion.div 
+                className="w-20 h-20 bg-gradient-to-br from-yellow-300 to-yellow-400 rounded-full mx-auto mb-6 flex items-center justify-center"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", damping: 8, delay: 0.2 }}
+              >
+                <span className="text-4xl">🎉</span>
+              </motion.div>
+              
+              <motion.h3 
+                className="text-2xl font-bold text-white mb-2 font-oxanium"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                Welcome to the Future!
+              </motion.h3>
+              
+              <motion.p 
+                className="text-blue-100"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4 }}
+              >
+                You're now on the waitlist for an incredible learning journey. Get ready to transform your career! 🚀
+              </motion.p>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         <motion.div
