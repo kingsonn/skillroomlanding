@@ -567,7 +567,7 @@ const GameHero = () => {
                     answer: "Our platform combines AI-powered 1:1 guidance, hands-on learning, and hyper-personalized paths that adapt to your learning style and pace. No more one-size-fits-all courses."
                   },
                   {
-                    question: "What&#39;s included in the early access?",  
+                    question: "What is included in the early access?",  
                     answer: "Early access members get special pricing, priority access to new features, direct access to our team for feedback, and lifetime benefits on the platform."
                   }
                 ].map((faq, index) => (
