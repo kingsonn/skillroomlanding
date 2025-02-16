@@ -179,7 +179,7 @@ const GameHero = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                You're now on the waitlist for an incredible learning journey. Get ready to transform your career! 🚀
+                You&#39;re now on the waitlist for an incredible learning journey. Get ready to transform your career! &#x1F680;
               </motion.p>
             </div>
           </motion.div>
@@ -299,7 +299,7 @@ const GameHero = () => {
                   />
                   
                   {/* Lightning container */}
-                  <div className="relative bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-full p-4 shadow-lg">
+                  <div className="relative bg-gradient-to-br from-yellow-300 to-yellow-400 rounded-full p-4 shadow-lg">
                     {/* Inner glow */}
                     <motion.div
                       className="absolute inset-0 bg-yellow-300/50 rounded-full blur-sm"
@@ -407,7 +407,7 @@ const GameHero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-green-300 mb-8"
               >
-                🎉 Thanks for joining! We&apos;ll notify you when we launch.
+                🎉 Thanks for joining! We&#39;ll notify you when we launch.
               </motion.div>
             )}
 
@@ -556,18 +556,18 @@ const GameHero = () => {
                 {[
                   {
                     question: "When will the platform launch?",
-                    answer: "We're planning to launch on April 1st 2025. Early access members will get first access to the platform and exclusive features."
+                    answer: "We&#39;re planning to launch on April 1st 2025. Early access members will get first access to the platform and exclusive features."
                   },
                   {
                     question: "What career paths are available?",
-                    answer: "We'll offer paths in Software Development, Data Science, AI/ML, Product Management, and Digital Marketing. More paths will be added based on community demand."
+                    answer: "We&#39;ll offer paths in Software Development, Data Science, AI/ML, Product Management, and Digital Marketing. More paths will be added based on community demand."
                   },
                   {
                     question: "How is this different from other platforms?",
                     answer: "Our platform combines AI-powered 1:1 guidance, hands-on learning, and hyper-personalized paths that adapt to your learning style and pace. No more one-size-fits-all courses."
                   },
                   {
-                    question: "What's included in the early access?",  
+                    question: "What&#39;s included in the early access?",  
                     answer: "Early access members get special pricing, priority access to new features, direct access to our team for feedback, and lifetime benefits on the platform."
                   }
                 ].map((faq, index) => (
