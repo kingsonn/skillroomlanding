@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Oxanium, Exo_2 } from 'next/font/google'
+import { Inter, Oxanium, Exo_2, Libre_Baskerville } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -12,6 +12,12 @@ const oxanium = Oxanium({
 const exo2 = Exo_2({
   subsets: ['latin'],
   variable: '--font-exo2',
+});
+
+const libreBaskerville = Libre_Baskerville({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-libre-baskerville',
 });
 
 export const metadata: Metadata = {
@@ -90,8 +96,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${oxanium.variable} ${exo2.variable}`}>
-      <body className={`font-exo2 ${inter.className} min-h-screen w-full m-0 p-0 overflow-x-hidden`}>
+    <html lang="en" className={`${oxanium.variable} ${exo2.variable} ${libreBaskerville.variable}`}>
+      <body className={`font-libre-baskerville ${inter.className} min-h-screen w-full m-0 p-0 overflow-x-hidden bg-blue-600`}>
         {children}
       </body>
     </html>

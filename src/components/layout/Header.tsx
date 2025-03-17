@@ -45,14 +45,14 @@ const Header = () => {
       <nav className="container mx-auto px-4 py-3 lg:py-4 mt-2 sm:mt-0">
         <div className="flex items-center justify-between">
           <motion.div 
-            className="flex items-center gap-1.5 lg:gap-2 group"
+            className="flex items-center gap-1 lg:gap-1.5 group"
             whileHover={{ scale: 1.02 }}
           >
             <motion.div className="relative w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 transition-all duration-300">
-              <Image src="/logo.svg" alt="UpLeveling Logo" fill className="object-contain" priority />
+              <Image src="/logo.jpg" alt="UpLeveling Logo" fill className="object-contain" priority />
             </motion.div>
-            <div className="flex flex-col">
-              <span className="text-white font-bold text-lg sm:text-xl lg:text-2xl font-oxanium tracking-wider bg-gradient-to-r from-[#edc44d] via-yellow-300 to-[#edc44d] bg-clip-text text-transparent">
+            <div className="flex flex-col justify-center ml-0.5">
+              <span className="text-white font-bold text-lg sm:text-xl lg:text-2xl font-libre-baskerville tracking-wider bg-gradient-to-r from-[#edc44d] via-yellow-300 to-[#edc44d] bg-clip-text text-transparent mt-1">
                 UpLeveling
               </span>
             </div>
@@ -67,19 +67,18 @@ const Header = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <span className="text-yellow-300 text-sm">✨</span>
-              <span className="text-white font-medium font-oxanium tracking-wider text-sm">2,450 XP</span>
+              <span className="text-yellow-300 text-sm font-libre-baskerville">✨</span>
+              <span className="text-white font-medium font-libre-baskerville tracking-wider text-sm">2,450 XP</span>
             </motion.div>
 
             {/* Get Started Button */}
             <motion.button
               onClick={scrollToTop}
-              className="bg-gradient-to-r from-yellow-300 to-yellow-400 hover:from-yellow-400 hover:to-yellow-500 text-blue-900 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl font-oxanium tracking-wide text-xs sm:text-sm whitespace-nowrap"
+              className="bg-gradient-to-r from-yellow-300 to-yellow-400 hover:from-yellow-400 hover:to-yellow-500 text-blue-900 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl font-libre-baskerville tracking-wide text-xs sm:text-sm whitespace-nowrap"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              JOIN WAITLIST
-            </motion.button>
+              Join Wailist         </motion.button>
           </div>
         </div>
       </nav>

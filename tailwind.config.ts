@@ -15,6 +15,7 @@ export default {
       fontFamily: {
         oxanium: ['var(--font-oxanium)', 'sans-serif'],
         exo2: ['var(--font-exo2)', 'sans-serif'],
+        'libre-baskerville': ['var(--font-libre-baskerville)', 'serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
