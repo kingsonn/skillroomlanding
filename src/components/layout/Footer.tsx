@@ -16,7 +16,7 @@ const Footer = () => {
             © {new Date().getFullYear()} UpLeveling Labs. All rights reserved.
           </p>
           <p className="text-blue-100/80 text-sm">
-            For queries: <a href="mailto:hanson@upleveling.xyz" className="text-yellow-300 hover:text-yellow-400 transition-colors">hanson@upleveling.xyz</a>
+            For queries: <a href="mailto:player0@uplevelinglabs.com" className="text-yellow-300 hover:text-yellow-400 transition-colors">player0@uplevelinglabs.com</a>
           </p>
         </div>
       </div>

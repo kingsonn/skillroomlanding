@@ -409,65 +409,81 @@ const GameHero = () => {
               </motion.div>
             )}
 
-            {/* Feature Cards */}
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-4 mb-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              {/* AI Guidance Card */}
-              <div className="bg-white/5 backdrop-blur-md rounded-xl p-5 border border-white/10 shadow-lg text-left">
-                <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-blue-400 to-blue-600 p-3.5 rounded-lg">
-                    <span className="text-2xl">🤖</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2 text-left font-libre-baskerville">AI-Powered Guidance</h3>
-                    <p className="text-blue-100 text-left font-libre-baskerville">Get personalized learning paths and real-time feedback from our advanced AI system.</p>
-                  </div>
-                </div>
-              </div>
+           {/* Feature Cards */}
+<motion.div
+  className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto mt-4 mb-8"
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.4 }}
+>
+  {/* AI Learning Card */}
+  <div className="bg-white/5 backdrop-blur-md rounded-xl p-5 border border-white/10 shadow-lg text-left">
+    <div className="flex items-start gap-4">
+      <div className="bg-gradient-to-br from-blue-400 to-blue-600 p-3.5 rounded-lg">
+        <span className="text-2xl">🤖</span>
+      </div>
+      <div>
+        <h3 className="text-xl font-bold text-white mb-2 text-left font-libre-baskerville">
+          AI-Powered Learning
+        </h3>
+        <p className="text-blue-100 text-left font-libre-baskerville">
+          Personalized learning paths and real-time AI feedback to fast-track your journey.
+        </p>
+      </div>
+    </div>
+  </div>
 
-              {/* Gamified Learning Card */}
-              <div className="bg-white/5 backdrop-blur-md rounded-xl p-5 border border-white/10 shadow-lg text-left">
-                <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-purple-400 to-purple-600 p-3.5 rounded-lg">
-                    <span className="text-2xl">🎮</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2 text-left font-libre-baskerville">Gamified Learning</h3>
-                    <p className="text-blue-100 text-left font-libre-baskerville">Earn XP, unlock achievements, and compete with peers to stay motivated.</p>
-                  </div>
-                </div>
-              </div>
+  {/* Hands-On Projects Card */}
+  <div className="bg-white/5 backdrop-blur-md rounded-xl p-5 border border-white/10 shadow-lg text-left">
+    <div className="flex items-start gap-4">
+      <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 p-3.5 rounded-lg">
+        <span className="text-2xl">💼</span>
+      </div>
+      <div>
+        <h3 className="text-xl font-bold text-white mb-2 text-left font-libre-baskerville">
+          Hands-On Projects
+        </h3>
+        <p className="text-blue-100 text-left font-libre-baskerville">
+          Work on real-world challenges, build a job-ready portfolio, and stand out to recruiters.
+        </p>
+      </div>
+    </div>
+  </div>
 
-              {/* Real Projects Card */}
-              <div className="bg-white/5 backdrop-blur-md rounded-xl p-5 border border-white/10 shadow-lg text-left">
-                <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-600 p-3.5 rounded-lg">
-                    <span className="text-2xl">💼</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2 text-left font-libre-baskerville">Real-World Projects</h3>
-                    <p className="text-blue-100 text-left font-libre-baskerville">Build a portfolio of projects that showcase your skills to potential employers.</p>
-                  </div>
-                </div>
-              </div>
+  {/* Job Simulations Card */}
+  <div className="bg-white/5 backdrop-blur-md rounded-xl p-5 border border-white/10 shadow-lg text-left">
+    <div className="flex items-start gap-4">
+      <div className="bg-gradient-to-br from-purple-400 to-purple-600 p-3.5 rounded-lg">
+        <span className="text-2xl">🎯</span>
+      </div>
+      <div>
+        <h3 className="text-xl font-bold text-white mb-2 text-left font-libre-baskerville">
+          Job Simulations
+        </h3>
+        <p className="text-blue-100 text-left font-libre-baskerville">
+          Practice real workplace scenarios with AI-driven roleplays and industry challenges.
+        </p>
+      </div>
+    </div>
+  </div>
 
-              {/* Community Card */}
-              <div className="bg-white/5 backdrop-blur-md rounded-xl p-5 border border-white/10 shadow-lg text-left">
-                <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-green-400 to-green-600 p-3.5 rounded-lg">
-                    <span className="text-2xl">👥</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2 text-left font-libre-baskerville">Community Support</h3>
-                    <p className="text-blue-100 text-left font-libre-baskerville">Connect with peers, mentors, and industry professionals for networking and support.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+  {/* Fast-Track Careers Card */}
+  <div className="bg-white/5 backdrop-blur-md rounded-xl p-5 border border-white/10 shadow-lg text-left">
+    <div className="flex items-start gap-4">
+      <div className="bg-gradient-to-br from-green-400 to-green-600 p-3.5 rounded-lg">
+        <span className="text-2xl">🚀</span>
+      </div>
+      <div>
+        <h3 className="text-xl font-bold text-white mb-2 text-left font-libre-baskerville">
+          Fast-Track Careers
+        </h3>
+        <p className="text-blue-100 text-left font-libre-baskerville">
+          Master in-demand skills. Boost your career—all for just ₹500 per career path.
+        </p>
+      </div>
+    </div>
+  </div>
+</motion.div> 
 
             {/* FAQ Section */}
             <div className="max-w-5xl mx-auto px-4 py-12 lg:py-16">
@@ -480,22 +496,7 @@ const GameHero = () => {
               {/* Left-aligned FAQ content */}
               <div className="space-y-6 lg:space-y-8 text-left">
                 {[
-                  {
-                    question: "When will the platform launch?",
-                    answer: "We're planning to launch in Q3 2023. Join the waitlist to get early access and exclusive updates."
-                  },
-                  {
-                    question: "How much will it cost?",
-                    answer: "We'll offer tiered pricing with a free tier for basic features. Premium plans will start at $19.99/month with significant discounts for annual subscriptions."
-                  },
-                  {
-                    question: "What skills can I learn?",
-                    answer: "Initially, we'll focus on tech skills including programming, data science, UX/UI design, and digital marketing. We'll expand to more domains based on user feedback."
-                  },
-                  {
-                    question: "Do I need prior experience?",
-                    answer: "Not at all! Our platform is designed for all skill levels, from complete beginners to advanced professionals looking to upskill."
-                  }
+                   { "question": "When will the platform launch?", "answer": "We're gearing up for launch soon! Join our waitlist to get early access, exclusive perks, and a chance to shape the future of AI-powered upskilling." }, { "question": "How much will it cost?", "answer": "We believe in affordable upskilling. Our platform will have a 500 Rs. per career path plan." }, { "question": "Do I need prior experience?", "answer": "Not at all! Whether you're a complete beginner or an experienced professional, our AI-powered learning paths adapt to your level, making upskilling smooth and effective." }, { "question": "What makes your platform different?", "answer": "Unlike traditional courses, we use AI-driven personalization, gamification, and real-world job simulations to make learning fun, interactive, and directly applicable to real jobs." }
                 ].map((faq, index) => (
                   <div key={index} className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10">
                     <h3 className="text-xl font-bold text-white mb-3 font-libre-baskerville text-left">{faq.question}</h3>
