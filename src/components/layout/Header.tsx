@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+// import Link from 'next/link';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -71,6 +72,16 @@ const Header = () => {
               <span className="text-white font-medium font-libre-baskerville tracking-wider text-sm">2,450 XP</span>
             </motion.div>
 
+            {/* Jobs Link */}
+            {/* <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link href="/jobs" className="text-white hover:text-yellow-300 font-medium font-libre-baskerville tracking-wider text-sm px-3 py-2">
+                Jobs
+              </Link>
+            </motion.div> */}
+
             {/* Get Started Button */}
             <motion.button
               onClick={scrollToTop}
@@ -78,7 +89,7 @@ const Header = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Join Wailist         </motion.button>
+              Join Waitlist         </motion.button>
           </div>
         </div>
       </nav>
